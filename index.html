@@ -1,0 +1,73 @@
+---
+layout: default
+title: Course contents
+---
+{% assign available = site.data.weeks | where_exp: 'week', 'week.url' %}
+<div class="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-14">
+  <header>
+    <p class="inline-flex items-center gap-1.5 text-sm font-medium text-teal-700"><i class="fa-solid fa-building-columns" aria-hidden="true"></i> Tbilisi State University · Design Patterns course</p>
+    <h1 class="mt-3 text-3xl font-bold tracking-tight text-stone-900">Design Patterns in Java</h1>
+    <p class="mt-4 max-w-2xl text-lg text-stone-600">A practical guide to all 23 classic object-oriented design patterns for students of TSU. Learn to recognize recurring problems and build software that is easier to understand, test, and change.</p>
+    <ul class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-stone-600">
+      <li class="inline-flex items-center gap-1.5"><i class="fa-regular fa-calendar text-teal-700" aria-hidden="true"></i> 14 weeks</li>
+      <li class="inline-flex items-center gap-1.5"><i class="fa-solid fa-puzzle-piece text-teal-700" aria-hidden="true"></i> 23 patterns</li>
+      <li class="inline-flex items-center gap-1.5"><i class="fa-solid fa-flask text-teal-700" aria-hidden="true"></i> Theory and guided Java labs</li>
+    </ul>
+    <a class="mt-6 inline-flex items-center gap-2 rounded-md bg-teal-700 px-4 py-2 text-sm font-medium text-white hover:bg-teal-800" href="{{ '/lessons/week-01/' | relative_url }}">Start with Week 01 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+  </header>
+
+  <section class="mt-10 flex items-baseline gap-3 rounded-lg border border-teal-100 bg-teal-50 p-4" aria-labelledby="before-title">
+    <i class="fa-solid fa-circle-info text-teal-700" aria-hidden="true"></i>
+    <div>
+      <h2 class="font-semibold text-stone-900" id="before-title">Before you begin</h2>
+      <p class="mt-1 text-sm text-stone-700">Bring a working knowledge of variables, control flow, methods, and simple data structures. Week 1 refreshes Java and OOP. Every lesson starts with a problem, explores the trade-offs, and pairs the pattern with working code.</p>
+    </div>
+  </section>
+
+  <section class="mt-12" id="curriculum" aria-labelledby="curriculum-title">
+    <h2 class="text-2xl font-semibold text-stone-900" id="curriculum-title">Course contents</h2>
+    <p class="mt-2 text-stone-600">{{ available.size }} of {{ site.data.weeks.size }} lessons are available. The rest will be added as the course grows.</p>
+    <ol class="mt-6 divide-y divide-stone-200 border-y border-stone-200">
+      {% for week in site.data.weeks %}
+      {% assign number = week.number | prepend: '0' | slice: -2, 2 %}
+      <li class="flex gap-4 py-5" id="week-{{ number }}">
+        <span class="w-6 shrink-0 text-sm font-medium text-stone-400 tabular-nums">{{ number }}</span>
+        <div class="min-w-0 flex-1">
+          <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+            <h3 class="font-semibold text-stone-900">{% if week.url %}<a class="text-teal-700 hover:underline" href="{{ week.url | relative_url }}">{{ week.title }}</a>{% else %}{{ week.title }}{% endif %}</h3>
+            {% if week.url %}
+            <span class="inline-flex items-center gap-1 rounded-full bg-teal-50 px-2.5 py-0.5 text-xs font-medium text-teal-700"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Available</span>
+            {% else %}
+            <span class="inline-flex items-center gap-1 rounded-full bg-stone-100 px-2.5 py-0.5 text-xs font-medium text-stone-500"><i class="fa-regular fa-clock" aria-hidden="true"></i> Planned</span>
+            {% endif %}
+          </div>
+          <p class="mt-1 text-sm text-stone-500">{{ week.theme }} · {{ week.categories | join: ' / ' }}</p>
+          <p class="mt-2 text-stone-700">{{ week.summary }}</p>
+          <p class="mt-2 flex items-baseline gap-2 text-sm text-stone-600"><i class="fa-solid fa-flask text-teal-700" aria-hidden="true"></i><span><span class="font-semibold text-stone-700">Lab:</span> {{ week.lab }}</span></p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="mt-12" aria-labelledby="categories-title">
+    <h2 class="text-2xl font-semibold text-stone-900" id="categories-title">Three categories of patterns</h2>
+    <div class="mt-5 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-lg border border-stone-200 p-4">
+        <i class="fa-solid fa-industry text-xl text-teal-700" aria-hidden="true"></i>
+        <h3 class="mt-2 font-semibold text-stone-900">Creational <span class="font-normal text-stone-500">· 5 patterns</span></h3>
+        <p class="mt-1 text-sm text-stone-600">How objects are created and obtained.</p>
+      </div>
+      <div class="rounded-lg border border-stone-200 p-4">
+        <i class="fa-solid fa-puzzle-piece text-xl text-teal-700" aria-hidden="true"></i>
+        <h3 class="mt-2 font-semibold text-stone-900">Structural <span class="font-normal text-stone-500">· 7 patterns</span></h3>
+        <p class="mt-1 text-sm text-stone-600">How objects and classes fit together.</p>
+      </div>
+      <div class="rounded-lg border border-stone-200 p-4">
+        <i class="fa-solid fa-comments text-xl text-teal-700" aria-hidden="true"></i>
+        <h3 class="mt-2 font-semibold text-stone-900">Behavioral <span class="font-normal text-stone-500">· 11 patterns</span></h3>
+        <p class="mt-1 text-sm text-stone-600">How responsibilities, algorithms, and communication are organized.</p>
+      </div>
+    </div>
+  </section>
+</div>

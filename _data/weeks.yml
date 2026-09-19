@@ -1,0 +1,85 @@
+- number: 1
+  title: Foundations + Strategy
+  theme: A first vocabulary for design
+  categories: [Foundations, Behavioral]
+  summary: Java, OOP, SOLID, and the purpose of design patterns. Make interchangeable behavior explicit with Strategy.
+  lab: Replace a pricing-policy conditional with an interface and two strategies.
+  url: /lessons/week-01/
+- number: 2
+  title: Template Method
+  theme: Algorithm structure
+  categories: [Behavioral]
+  summary: Define an algorithm skeleton with overridable steps. Compare inheritance-based customization with Strategy.
+  lab: Implement a report-processing workflow and compare two ways of extending it.
+- number: 3
+  title: Factory Method + Abstract Factory
+  theme: Creation behind an interface
+  categories: [Creational]
+  summary: Separate creation from use. Compare overridable creation methods with factories for compatible product families.
+  lab: Create document exporters and compatible exporter–formatter families.
+- number: 4
+  title: Builder + Prototype
+  theme: Construction and copying
+  categories: [Creational]
+  summary: Build complex objects step by step or copy configured instances. Explore validation and shallow versus deep copies.
+  lab: Build a document configuration and create independent variants from a prototype.
+- number: 5
+  title: Singleton + Flyweight
+  theme: Instance control and sharing
+  categories: [Creational, Structural]
+  summary: Contrast a single instance with many objects sharing reusable state. Discuss testability, lifecycle, and intrinsic versus extrinsic state.
+  lab: Examine a Singleton's testing costs and share immutable text styles between characters.
+- number: 6
+  title: Adapter + Facade
+  theme: Interface boundaries
+  categories: [Structural]
+  summary: Translate an incompatible interface or simplify access to a subsystem. Establish clear dependency boundaries.
+  lab: Adapt a legacy library and simplify a multi-step enrollment operation.
+- number: 7
+  title: Decorator + Proxy
+  theme: Object wrappers
+  categories: [Structural]
+  summary: Add composable behavior or control access to an object. Explore delegation, wrapper order, and transparency.
+  lab: Compose notification decorators and implement an access-checking proxy.
+- number: 8
+  title: Bridge
+  theme: Independent dimensions of change
+  categories: [Structural]
+  summary: Let an abstraction and its implementation vary independently. Compare Bridge with Adapter and Strategy.
+  lab: Combine report types and output channels without a subclass for every combination.
+- number: 9
+  title: Composite + Iterator
+  theme: Object trees and traversal
+  categories: [Structural, Behavioral]
+  summary: Represent part–whole hierarchies and traverse collections without exposing their representation.
+  lab: Model course modules and lessons, then implement a defined traversal order.
+- number: 10
+  title: Observer + Mediator
+  theme: Object communication
+  categories: [Behavioral]
+  summary: Notify subscribers or centralize coordination. Consider subscription lifecycles, failure handling, and mediator size.
+  lab: Implement enrollment notifications and coordinate registration components.
+- number: 11
+  title: Command + Memento
+  theme: Actions and undo
+  categories: [Behavioral]
+  summary: Represent requests as objects and capture state without exposing internals. Compare inverse operations with snapshots.
+  lab: Implement editor commands with a snapshot-backed undo history.
+- number: 12
+  title: State
+  theme: Lifecycle behavior
+  categories: [Behavioral]
+  summary: Encapsulate behavior that changes with an object's state. Define legal transitions and contrast State with Strategy.
+  lab: Model draft, submitted, and graded assignments; test invalid transitions.
+- number: 13
+  title: Chain of Responsibility
+  theme: Request routing
+  categories: [Behavioral]
+  summary: Pass requests through ordered handlers. Define stopping behavior and compare routing with Decorator and Command.
+  lab: Implement an approval chain with escalation and an explicit unhandled case.
+- number: 14
+  title: Visitor + Interpreter
+  theme: Operations on object trees
+  categories: [Behavioral]
+  summary: Add operations to a stable object structure using double dispatch, and represent a small grammar as objects that evaluate expressions.
+  lab: Evaluate an arithmetic expression tree and add a Visitor to format expressions.

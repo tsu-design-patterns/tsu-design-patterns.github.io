@@ -1,0 +1,10 @@
+title: TSU Design Patterns
+description: A Design Patterns course for students of Tbilisi State University, covering all 23 classic object-oriented patterns with examples in Java.
+url: https://tsu-design-patterns.github.io
+baseurl: ""
+lang: en
+repository_url: https://github.com/tsu-design-patterns/tsu-design-patterns.github.io
+organization_url: https://github.com/tsu-design-patterns
+
+exclude:
+  - README.md
