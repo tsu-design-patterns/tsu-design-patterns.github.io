@@ -230,16 +230,35 @@ Now suppose the bookshop needs additional policies and each policy will evolve i
 | Concrete strategies | `RegularPricing`, `StudentPricing` | Implement different pricing algorithms. |
 | Client / assembly code | `StrategyDemo.main` | Chooses a policy and provides it to checkout. |
 
-<div class="my-8 rounded-lg border border-stone-200 p-5 text-center text-sm" role="img" aria-label="Checkout holds a reference to PricingStrategy. RegularPricing and StudentPricing implement PricingStrategy.">
-  <div class="flex flex-wrap items-center justify-center gap-3 font-mono">
-    <div class="rounded border border-stone-200 bg-stone-50 px-4 py-2">Checkout<span class="block font-sans text-xs text-stone-500">context</span></div>
-    <i class="fa-solid fa-arrow-right text-stone-400" aria-hidden="true"></i>
-    <div class="rounded border border-stone-200 bg-stone-50 px-4 py-2">PricingStrategy<span class="block font-sans text-xs text-stone-500">interface</span></div>
-  </div>
-  <div class="mt-3 text-stone-500">Implemented by RegularPricing and StudentPricing</div>
-</div>
+### Read the class diagram
 
-In a UML class diagram, a solid line can show `Checkout`'s association with `PricingStrategy`. A dashed line with a hollow triangle points from each implementation to the interface it realizes. An inheritance relationship uses a solid line with a hollow triangle pointing to the superclass. The simplified sketch above emphasizes collaboration rather than full UML notation.
+```mermaid
+classDiagram
+    accTitle: Strategy pattern class diagram
+    accDescr: Checkout holds a reference to the PricingStrategy interface. RegularPricing and StudentPricing implement PricingStrategy.
+    class Checkout {
+        -pricing: PricingStrategy
+        ~Checkout(pricing: PricingStrategy)
+        ~totalInCents(subtotalCents: int) int
+    }
+    class PricingStrategy {
+        <<interface>>
+        +priceInCents(subtotalCents: int) int
+    }
+    class RegularPricing {
+        +priceInCents(subtotalCents: int) int
+    }
+    class StudentPricing {
+        +priceInCents(subtotalCents: int) int
+    }
+    Checkout --> PricingStrategy
+    PricingStrategy <|.. RegularPricing
+    PricingStrategy <|.. StudentPricing
+```
+
+Each box is a type with three compartments: its name, its fields, and its operations. `«interface»` marks `PricingStrategy` as an interface. The symbol before each member shows its visibility: `+` public, `-` private, and `~` package access. Parameters are written as `name: Type`, and an operation's result type follows its parameter list.
+
+The solid line with an arrowhead is an association: every `Checkout` holds a reference to a `PricingStrategy`. The dashed lines with hollow triangles show realization: `RegularPricing` and `StudentPricing` implement the interface. Inheritance between classes would use a solid line with a hollow triangle pointing to the superclass. Notice that `Checkout` has no line to either concrete strategy: it depends only on the interface.
 
 ### Complete Java implementation
 

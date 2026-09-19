@@ -13,12 +13,13 @@ bundle exec jekyll serve
 
 Open [localhost:4000](http://localhost:4000). Restart the server after changing `_config.yml`.
 
-## Styling and icons
+## Styling, icons and diagrams
 
-There is no build step besides Jekyll. Both libraries are loaded from a CDN in `_layouts/default.html`:
+There is no build step besides Jekyll. These libraries are loaded from a CDN in `_layouts/default.html`:
 
 - **[Tailwind CSS](https://tailwindcss.com/docs/installation/play-cdn)**: style pages with utility classes directly in the HTML. The only CSS in the project is the small `<style type="text/tailwindcss">` block in that layout. It uses `@apply` to style lesson Markdown, which has no classes, and to color code highlighted by Jekyll.
 - **[Font Awesome Free](https://fontawesome.com/search?ic=free)**: for example, `<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>`.
+- **[Mermaid](https://mermaid.js.org/)**: write a diagram in a ```` ```mermaid ```` code block, like the class diagram in `week-01.md`. Mermaid is only downloaded on pages that contain a diagram.
 
 ## Add a lesson
 
